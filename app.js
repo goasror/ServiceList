@@ -229,6 +229,7 @@
     $('sheetNote').textContent = t('footnote');
     $('keepEditing').textContent = t('keepEditing');
     $('download').textContent = t('download');
+    $('printBtn').textContent = t('print');
     $('empty').textContent = t('empty');
   }
 
@@ -245,6 +246,24 @@
       row.querySelector('input').checked = on;
     }
     renderBar();
+  }
+
+  function downloadPDF() {
+    var d = new Date();
+    var stamp = d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+    window.buildQuotePDF({
+      clinic: CFG.clinicName,
+      city: t('city'),
+      date: pad2(d.getDate()) + '.' + pad2(d.getMonth() + 1) + '.' + d.getFullYear(),
+      sheetLabel: t('sheetLabel'),
+      totalLabel: t('totalLabel'),
+      currency: t('currency'),
+      footnote: t('footnote'),
+      pageLabel: function (cur, all) { return t('pageOf') + ' ' + cur + '/' + all; },
+      items: chosen().map(function (s) { return { name: svcName(s), price: money(s.price) }; }),
+      total: money(total()),
+      filename: 'TShTMDM-DM_' + stamp + '.pdf'
+    });
   }
 
   function openModal() {
@@ -304,7 +323,16 @@
     $('openPdf').addEventListener('click', openModal);
     $('closePdf').addEventListener('click', closeModal);
     $('keepEditing').addEventListener('click', closeModal);
-    $('download').addEventListener('click', function () { window.print(); });
+    $('printBtn').addEventListener('click', function () { window.print(); });
+
+    $('download').addEventListener('click', function () {
+      try {
+        downloadPDF();
+      } catch (err) {
+        console.error(err);
+        alert(t('pdfError') + ': ' + err.message);
+      }
+    });
     $('overlay').addEventListener('click', function (e) { if (e.target === $('overlay')) closeModal(); });
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;

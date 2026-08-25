@@ -34,11 +34,14 @@ window.APP_CONFIG = {
       "sheetLabel": "Выбранные услуги",
       "totalLabel": "Итого",
       "keepEditing": "Продолжить",
-      "download": "Скачать",
+      "download": "Скачать PDF",
       "currency": "сум",
       "empty": "Ничего не найдено.",
       "loadError": "Не удалось загрузить данные",
-      "footnote": "Цены указаны с НДС 12%. Данный расчет является предварительным и не является платежным документом."
+      "footnote": "Цены указаны с НДС 12%. Данный расчет является предварительным и не является платежным документом.",
+      "print": "Печать",
+      "pdfError": "Не удалось создать PDF",
+      "pageOf": "стр."
     },
     "uz": {
       "city": "Toshkent",
@@ -55,11 +58,14 @@ window.APP_CONFIG = {
       "sheetLabel": "Tanlangan xizmatlar",
       "totalLabel": "Jami",
       "keepEditing": "Davom ettirish",
-      "download": "Yuklab olish",
+      "download": "PDF yuklab olish",
       "currency": "so'm",
       "empty": "Hech narsa topilmadi.",
       "loadError": "Ma'lumotni yuklab bo'lmadi",
-      "footnote": "Narxlar 12% QQS bilan ko'rsatilgan. Ushbu hisob-kitob dastlabki bo'lib, to'lov hujjati hisoblanmaydi."
+      "footnote": "Narxlar 12% QQS bilan ko'rsatilgan. Ushbu hisob-kitob dastlabki bo'lib, to'lov hujjati hisoblanmaydi.",
+      "print": "Chop etish",
+      "pdfError": "PDF yaratib bo‘lmadi",
+      "pageOf": "bet"
     }
   }
 };

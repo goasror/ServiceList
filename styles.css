@@ -287,3 +287,10 @@ body{
 
   a[href]:after{content:none !important}
 }
+
+/* modal footer: primary actions + quiet print link */
+.modal-foot{display:block}
+.modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.linkbtn--quiet{
+  display:block;margin:14px auto 0;color:#666;border-bottom-color:#BBB;
+}
