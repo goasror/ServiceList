@@ -33,7 +33,14 @@
       <input type="search" id="search" autocomplete="off">
     </div>
 
-    <nav class="chips" id="chips"></nav>
+    <div class="catpick">
+      <button type="button" class="catpick-btn" id="catBtn" aria-expanded="false" aria-controls="catPanel">
+        <span class="catpick-cur" id="catBtnLabel"></span>
+        <span class="mono catpick-num" id="catBtnCount"></span>
+        <svg class="catpick-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="catpick-panel" id="catPanel" hidden></div>
+    </div>
   </header>
 
   <div id="list" class="list" aria-live="polite"></div>

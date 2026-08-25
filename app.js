@@ -84,7 +84,9 @@
   function categories() {
     var keys = [], out = [];
     SERVICES.forEach(function (s) {
-      if (keys.indexOf(s.cat.ru) < 0) { keys.push(s.cat.ru); out.push({ key: s.cat.ru, label: catName(s) }); }
+      var i = keys.indexOf(s.cat.ru);
+      if (i < 0) { keys.push(s.cat.ru); out.push({ key: s.cat.ru, label: catName(s), n: 1 }); }
+      else out[i].n++;
     });
     return out;
   }
@@ -137,14 +139,33 @@
     }).join('');
   }
 
-  function renderChips() {
-    var html = '<button type="button" class="chip" data-cat="*" aria-pressed="' + (activeCat === '*') +
-      '">' + esc(t('allCategories')) + '</button>';
-    categories().forEach(function (c) {
-      html += '<button type="button" class="chip" data-cat="' + esc(c.key) + '" aria-pressed="' +
-        (activeCat === c.key) + '">' + esc(c.label) + '</button>';
-    });
-    $('chips').innerHTML = html;
+  function renderCats() {
+    var cats = categories();
+    var opt = function (key, label, n) {
+      return '<button type="button" class="catopt" data-cat="' + esc(key) + '" aria-pressed="' +
+        (activeCat === key) + '"><span class="catopt-name">' + esc(label) +
+        '</span><span class="catopt-num">' + n + '</span></button>';
+    };
+    var html = opt('*', t('allCategories'), SERVICES.length);
+    cats.forEach(function (c) { html += opt(c.key, c.label, c.n); });
+    $('catPanel').innerHTML = html;
+
+    var cur = null;
+    if (activeCat !== '*') {
+      for (var i = 0; i < cats.length; i++) if (cats[i].key === activeCat) { cur = cats[i]; break; }
+    }
+    $('catBtnLabel').textContent = cur ? cur.label : t('allCategories');
+    $('catBtnCount').textContent = cur ? cur.n : SERVICES.length;
+  }
+
+  function closeCats() {
+    $('catPanel').hidden = true;
+    $('catBtn').setAttribute('aria-expanded', 'false');
+  }
+  function toggleCats() {
+    var open = $('catPanel').hidden;
+    $('catPanel').hidden = !open;
+    $('catBtn').setAttribute('aria-expanded', String(open));
   }
 
   function renderList() {
@@ -211,7 +232,7 @@
     $('empty').textContent = t('empty');
   }
 
-  function renderAll() { applyStrings(); renderLangs(); renderChips(); renderList(); renderBar(); }
+  function renderAll() { applyStrings(); renderLangs(); renderCats(); renderList(); renderBar(); }
 
   /* ---------- events ---------- */
   function toggle(id) {
@@ -246,11 +267,19 @@
       toggle(row.dataset.id);
     });
 
-    $('chips').addEventListener('click', function (e) {
-      var chip = e.target.closest('.chip');
-      if (!chip) return;
-      activeCat = chip.dataset.cat;
-      renderChips(); renderList();
+    $('catBtn').addEventListener('click', function (e) { e.stopPropagation(); toggleCats(); });
+
+    $('catPanel').addEventListener('click', function (e) {
+      var o = e.target.closest('.catopt');
+      if (!o) return;
+      activeCat = o.dataset.cat;
+      closeCats();
+      renderCats(); renderList();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!$('catPanel').hidden && !e.target.closest('.catpick')) closeCats();
     });
 
     $('langs').addEventListener('click', function (e) {
@@ -278,7 +307,9 @@
     $('download').addEventListener('click', function () { window.print(); });
     $('overlay').addEventListener('click', function (e) { if (e.target === $('overlay')) closeModal(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !$('overlay').hidden) closeModal();
+      if (e.key !== 'Escape') return;
+      if (!$('overlay').hidden) closeModal();
+      else if (!$('catPanel').hidden) closeCats();
     });
   }
 
