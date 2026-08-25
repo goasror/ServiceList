@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TShTMDM DM — Прейскурант цен</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Cpath d='M9 15h14M16 8v14' stroke='%23E5342A' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<main class="card" id="app">
+  <header class="head">
+    <div class="head-row">
+      <h1 class="clinic" id="clinicName">&nbsp;</h1>
+      <div class="langs" id="langs" role="group" aria-label="Язык / Til"></div>
+    </div>
+    <div class="rule"></div>
+    <div class="head-meta">
+      <div>
+        <div class="label" id="listTitle">&nbsp;</div>
+        <p class="subtitle" id="listSubtitle">&nbsp;</p>
+      </div>
+      <div class="head-updated">
+        <div class="label label--red" id="updatedLabel">&nbsp;</div>
+        <div class="mono updated-date" id="updatedDate">&nbsp;</div>
+      </div>
+    </div>
+    <div class="rule rule--thin"></div>
+
+    <div class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+      <input type="search" id="search" autocomplete="off">
+    </div>
+
+    <nav class="chips" id="chips"></nav>
+  </header>
+
+  <div id="list" class="list" aria-live="polite"></div>
+  <p class="empty" id="empty" hidden></p>
+</main>
+
+<div class="bar" id="bar" hidden>
+  <div class="bar-inner">
+    <div class="bar-left">
+      <div class="bar-count"><span id="countLabel"></span> <span class="mono" id="countNum">00</span><button type="button" class="linkbtn" id="clear"></button></div>
+      <div class="bar-total"><span class="mono" id="totalNum">0</span> <span class="cur" id="curLabel"></span></div>
+    </div>
+    <button type="button" class="btn btn--dark" id="openPdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+      <span id="pdfBtnLabel">PDF</span>
+    </button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <span class="label" id="modalTitle"></span>
+      <button type="button" class="linkbtn" id="closePdf"></button>
+    </div>
+    <div class="modal-body">
+      <section class="sheet" id="sheet">
+        <div class="sheet-top">
+          <div>
+            <h2 class="sheet-title" id="sheetClinic"></h2>
+            <div class="sheet-city" id="sheetCity"></div>
+          </div>
+          <div class="mono sheet-date" id="sheetDate"></div>
+        </div>
+        <div class="rule"></div>
+        <div class="label sheet-label" id="sheetLabel"></div>
+        <ol class="sheet-list" id="sheetList"></ol>
+        <div class="rule"></div>
+        <div class="sheet-total">
+          <span class="label" id="sheetTotalLabel"></span>
+          <span class="mono sheet-total-num"><span id="sheetTotal"></span> <span id="sheetCur"></span></span>
+        </div>
+        <p class="sheet-note" id="sheetNote"></p>
+      </section>
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn--ghost" id="keepEditing"></button>
+      <button type="button" class="btn btn--dark" id="download"></button>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="services.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
