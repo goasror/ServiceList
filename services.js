@@ -117,20 +117,6 @@ category_ru,category_uz,name_ru,name_uz,price,active
 Клинико-диагностическая лаборатория,Klinik-diagnostik laboratoriya,Микроскопическое исследование отделяемого из уретры,Uretra ajralmasini mikroskopik tekshirish,65000,1
 Клинико-диагностическая лаборатория,Klinik-diagnostik laboratoriya,Микроскопическое исследование осадка секрета простаты,Prostata sekreti cho'kmasini mikroskopik tekshirish,65000,1
 Клинико-диагностическая лаборатория,Klinik-diagnostik laboratoriya,Цитологическое исследование мокроты,Balg'amni sitologik tekshirish,65000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Общий трийодтиронин (Т-3),Umumiy triyodtironin (T-3),50000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Свободный трийодтиронин (Т св-3),Erkin triyodtironin (T erk-3),60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Общий тироксин (Т-4),Umumiy tiroksin (T-4),55000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Свободный тироксин (Т св-4),Erkin tiroksin (T erk-4),65000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Тиреотропный гормон (ТТГ),Tireotrop gormon (TTG),65000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Определение аутоантител к тиреоидной пероксидазе в сыворотке крови,Qon zardobida tireoid peroksidazaga autoantitelolarni aniqlash,65000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Определение тиреоглобулина в сыворотке крови,Qon zardobida tireoglobulinni aniqlash,60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Фолликулостимулирующий гормон (ФСГ),Follikulostimullovchi gormon (FSG),60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Лютеинизирующий гормон (ЛГ),Lyuteinlovchi gormon (LG),60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Пролактин,Prolaktin,60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Прогестерон,Progesteron,70000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Кортизол,Kortizol,60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Тестостерон,Testosteron,60000,1
-Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Эстрадиол,Estradiol,60000,1
 Исследования уровня гормонов в крови,Qonda gormonlar darajasini tekshirish,Определение беременности в крови (ХГ),Qonda homiladorlikni aniqlash (XG),70000,1
 TORCH инфекции класса G,TORCH infeksiyalari G sinfi,Цитомегаловирус (ЦМВ),Sitomegalovirus (SMV),50000,1
 TORCH инфекции класса G,TORCH infeksiyalari G sinfi,Токсоплазмоз,Toksoplazmoz,50000,1
@@ -156,10 +142,6 @@ TORCH инфекции класса M,TORCH infeksiyalari M sinfi,Микопла
 Паразитологические исследования,Parazitologik tekshiruvlar,"Определение суммарных антител лямблий в крови (IgA, IgM, IgG)","Qonda lyamblin summar antitelolarini aniqlash (IgA, IgM, IgG)",72000,1
 Паразитологические исследования,Parazitologik tekshiruvlar,"ИФА выявление IgG к антигенам гельминтов (описторхисов, трихинелл, токсокар и эхинококков) в сыворотке и плазме крови","IFA usulida gelmintlar (opistorxis, trixinella, toksokara va exinokokk) antigenlariga IgG ni qon zardobi va plazmasida aniqlash",130000,1
 Паразитологические исследования,Parazitologik tekshiruvlar,Определение специфических антител класса IgG к Ascaris lumbricoides,Ascaris lumbricoides ga IgG sinfidagi spetsifik antitelolarni aniqlash,70000,1
-Новые исследования,Yangi tekshiruvlar,ИФА определение Д-димера в крови,IFA usulida qonda D-dimerni aniqlash,155000,0
-Новые исследования,Yangi tekshiruvlar,ИФА определение прокальцитонина в крови,IFA usulida qonda prokalsitoninni aniqlash,125000,0
-Новые исследования,Yangi tekshiruvlar,ИФА определение ферритина в крови,IFA usulida qonda ferritinni aniqlash,96000,0
-Новые исследования,Yangi tekshiruvlar,ИФА определение интерлейкина-6 в крови,IFA usulida qonda interleykin-6 ni aniqlash,145000,0
 Анализатор COBAS E 411 / MAGLUMI X3 (ИХЛА),COBAS E 411 / MAGLUMI X3 analizatori (IHLA),Исследование уровня витамина Д в крови,Qonda D vitamini darajasini tekshirish,240000,1
 Анализатор COBAS E 411 / MAGLUMI X3 (ИХЛА),COBAS E 411 / MAGLUMI X3 analizatori (IHLA),Исследование уровня инсулина в крови,Qonda insulin darajasini tekshirish,155000,1
 Анализатор COBAS E 411 / MAGLUMI X3 (ИХЛА),COBAS E 411 / MAGLUMI X3 analizatori (IHLA),Исследование уровня ферритина в крови,Qonda ferritin darajasini tekshirish,135000,1
