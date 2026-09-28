@@ -164,11 +164,6 @@ TORCH инфекции класса M,TORCH infeksiyalari M sinfi,Микопла
 Анализатор COBAS E 411 / MAGLUMI X3 (ИХЛА),COBAS E 411 / MAGLUMI X3 analizatori (IHLA),Определение специфического антигена простаты (PSA),Prostata spetsifik antigenini (PSA) aniqlash,135000,1
 Иммунофлюоресцентный метод,Immunoflyuoressent usul,Количественное определение высокочувствительного С-реактивного белка в сыворотке и плазме крови,Qon zardobi va plazmasida yuqori sezgir C-reaktiv oqsilni miqdoriy aniqlash,85000,1
 Иммунофлюоресцентный метод,Immunoflyuoressent usul,Количественное определение высокочувствительного гликогемоглобина HbA1c в крови,Qonda yuqori sezgir glikogemoglobin HbA1c ni miqdoriy aniqlash,95000,1
-Гематологическая станция CAL8000,CAL8000 gematologik stansiyasi,Общий (клинический) анализ крови развернутый 33 параметра,Umumiy (klinik) qon tahlili kengaytirilgan 33 ko'rsatkich,50000,0
-Гематологическая станция CAL8000,CAL8000 gematologik stansiyasi,Общий (клинический) анализ крови развернутый и СОЭ (34 параметра),Umumiy (klinik) qon tahlili kengaytirilgan va ECHT (34 ko'rsatkich),70000,0
-Гематологическая станция CAL8000,CAL8000 gematologik stansiyasi,"Общий (клинический) анализ крови развернутый, СОЭ, ретикулоциты (41 параметр)","Umumiy (klinik) qon tahlili kengaytirilgan, ECHT, retikulotsitlar (41 ko'rsatkich)",90000,0
-Гематологическая станция CAL8000,CAL8000 gematologik stansiyasi,Определение СОЭ в крови (1 параметр),Qonda ECHT ni aniqlash (1 ko'rsatkich),20000,1
-Гематологическая станция CAL8000,CAL8000 gematologik stansiyasi,Многопараметрическое исследование мочи в мочевом анализаторе URIT US-2000,URIT US-2000 siydik analizatorida siydikni ko'p ko'rsatkichli tekshirish,40000,0
 Забор крови,Qon olish,Забор крови,Qon olish,10000,1
 Забор крови,Qon olish,Забор крови для теста на нагрузку с глюкозой в 2 этапа,Glyukoza bilan yuklama testi uchun qon olish (2 bosqich),20000,1
 Забор крови,Qon olish,Забор крови для теста на нагрузку с глюкозой в 3 этапа,Glyukoza bilan yuklama testi uchun qon olish (3 bosqich),30000,1
