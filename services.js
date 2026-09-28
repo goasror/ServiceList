@@ -172,5 +172,4 @@ TORCH инфекции класса M,TORCH infeksiyalari M sinfi,Микопла
 Консультация специалистов,Mutaxassislar konsultatsiyasi,Осмотр (консультация) уролога,Urolog ko'rigi (konsultatsiyasi),120000,1
 Консультация специалистов,Mutaxassislar konsultatsiyasi,Забор биоматериала из уретры (сок простаты),Uretradan biomaterial olish (prostata shirasi),25000,1
 Консультация специалистов,Mutaxassislar konsultatsiyasi,Забор биоматериала из уретры (сок простаты) (без посещения уролога),Uretradan biomaterial olish (prostata shirasi) (urolog qabulisiz),40000,1
-Консультация специалистов,Mutaxassislar konsultatsiyasi,Осмотр (консультация) кардиолога,Kardiolog ko'rigi (konsultatsiyasi),120000,1
 `;
