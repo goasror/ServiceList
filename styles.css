@@ -203,6 +203,30 @@ body{
 .sheet-city{margin-top:4px;font-size:13px;color:#555}
 .sheet-date{font-size:12px;color:#555;text-align:right;letter-spacing:.04em}
 .sheet-label{color:#555;margin:18px 0 6px}
+.patient{margin:0 0 4px}
+.patient.is-empty{margin-bottom:0}
+.patient-title{color:#999;margin:0 0 8px;font-weight:600}
+.patient-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px 14px}
+.pf{display:block;min-width:0}
+.pf-l{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#555;margin-bottom:3px}
+.pf input{
+  width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);
+  background:none;border:0;border-bottom:1.5px solid #CFCFCF;border-radius:0;
+  padding:4px 0 5px;outline:none;
+}
+.pf input:focus{border-bottom-color:var(--ink)}
+.pf-note{margin-top:12px}
+.pf textarea{
+  width:100%;display:block;font:inherit;font-size:14px;line-height:1.4;color:var(--ink);
+  background:none;border:0;border-bottom:1.5px solid #CFCFCF;border-radius:0;
+  padding:4px 0 5px;outline:none;resize:none;overflow:hidden;min-height:2.6em;
+}
+.pf textarea:focus{border-bottom-color:var(--ink)}
+.patient-print{display:none}
+@media (max-width:480px){
+  .patient-grid{grid-template-columns:1fr 1fr}
+  .pf:last-child{grid-column:1 / -1}
+}
 .sheet-list{list-style:none;margin:0;padding:0}
 .sheet-list li{
   display:flex;align-items:flex-start;gap:14px;
@@ -269,6 +293,15 @@ body{
   .rule{height:0 !important;background:none !important;border-top:2.5pt solid #000}
   .rule--thin{border-top-width:1.5pt}
 
+  /* fields print as plain text, only what was filled in */
+  .patient{display:none !important}
+  .patient-print{display:block;margin:0 0 4mm;padding-bottom:3mm;border-bottom:.4pt solid #bbb}
+  .patient-print:empty{display:none}
+  .pp-row{display:flex;gap:6mm}
+  .pp{break-inside:avoid;page-break-inside:avoid;margin-bottom:2.5mm}
+  .pp-s,.pp-n{flex:2 1 0}.pp-d{flex:1 1 0}
+  .pp .pf-l{color:#000;font-size:7.5pt;margin-bottom:.8mm}
+  .pp-v{display:block;font-size:11pt;line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere}
   .sheet-top{margin-bottom:10mm}
   .sheet-title{font-size:20pt}
   .sheet-city,.sheet-date{color:#000}

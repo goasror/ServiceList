@@ -41,7 +41,12 @@ window.APP_CONFIG = {
       "footnote": "Цены указаны с НДС 12%. Данный расчет является предварительным и не является платежным документом.",
       "print": "Печать",
       "pdfError": "Не удалось создать PDF",
-      "pageOf": "стр."
+      "pageOf": "стр.",
+      "patientTitle": "Данные (необязательно)",
+      "surname": "Фамилия",
+      "firstName": "Имя",
+      "dateField": "Дата",
+      "noteField": "Примечание"
     },
     "uz": {
       "city": "Toshkent",
@@ -65,7 +70,12 @@ window.APP_CONFIG = {
       "footnote": "Narxlar 12% QQS bilan ko'rsatilgan. Ushbu hisob-kitob dastlabki bo'lib, to'lov hujjati hisoblanmaydi.",
       "print": "Chop etish",
       "pdfError": "PDF yaratib bo‘lmadi",
-      "pageOf": "bet"
+      "pageOf": "bet",
+      "patientTitle": "Ma'lumotlar (ixtiyoriy)",
+      "surname": "Familiya",
+      "firstName": "Ism",
+      "dateField": "Sana",
+      "noteField": "Izoh"
     }
   }
 };

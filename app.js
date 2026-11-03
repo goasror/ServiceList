@@ -11,6 +11,8 @@
   var query = '';
   var SEL_KEY = 'tshtmdm.selection.v1';
   var LANG_KEY = 'tshtmdm.lang.v1';
+  var PAT_KEY = 'tshtmdm.patient.v1';
+  var PAT_IDS = { surname: 'pfSurname', name: 'pfName', date: 'pfDate', note: 'pfNote' };
 
   var $ = function (id) { return document.getElementById(id); };
   var t = function (key) { return (CFG.i18n && CFG.i18n[lang] && CFG.i18n[lang][key]) || ''; };
@@ -122,6 +124,49 @@
       }
     } catch (e) {}
   }
+  /* optional patient fields (surname / name / date) */
+  function patient() {
+    var v = function (k) { return ($(PAT_IDS[k]).value || '').trim(); };
+    var d = v('date');
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+    return { surname: v('surname'), name: v('name'), date: m ? m[3] + '.' + m[2] + '.' + m[1] : d, note: v('note') };
+  }
+  function grow() { var n = $('pfNote'); n.style.height = 'auto'; n.style.height = n.scrollHeight + 'px'; }
+  function savePatient() {
+    grow();
+    try {
+      var raw = {};
+      Object.keys(PAT_IDS).forEach(function (k) { raw[k] = $(PAT_IDS[k]).value; });
+      sessionStorage.setItem(PAT_KEY, JSON.stringify(raw));
+    } catch (e) {}
+    syncPatient();
+  }
+  function restorePatient() {
+    try {
+      var raw = JSON.parse(sessionStorage.getItem(PAT_KEY) || 'null');
+      if (raw) Object.keys(PAT_IDS).forEach(function (k) { $(PAT_IDS[k]).value = raw[k] || ''; });
+    } catch (e) {}
+    syncPatient();
+  }
+  function clearPatient() {
+    Object.keys(PAT_IDS).forEach(function (k) { $(PAT_IDS[k]).value = ''; });
+    savePatient();
+  }
+  // marks the block empty so the printed page stays exactly as before
+  function syncPatient() {
+    var p = patient();
+    $('patient').classList.toggle('is-empty', !(p.surname || p.name || p.date || p.note));
+    renderPatientPrint(p);
+  }
+  // print-only plain-text copy of the fields (inputs/textarea print poorly: clipped, locale dates)
+  function renderPatientPrint(p) {
+    var cell = function (label, val, cls) {
+      return val ? '<div class="pp ' + cls + '"><span class="pf-l">' + esc(label) + '</span><span class="pp-v">' + esc(val) + '</span></div>' : '';
+    };
+    var row = cell(t('surname'), p.surname, 'pp-s') + cell(t('firstName'), p.name, 'pp-n') + cell(t('dateField'), p.date, 'pp-d');
+    $('patientPrint').innerHTML = (row ? '<div class="pp-row">' + row + '</div>' : '') + cell(t('noteField'), p.note, 'pp-note');
+  }
+
   function restoreLang() {
     var saved = null;
     try { saved = localStorage.getItem(LANG_KEY); } catch (e) {}
@@ -224,6 +269,12 @@
     $('sheetClinic').textContent = CFG.clinicName;
     $('sheetCity').textContent = t('city');
     $('sheetLabel').textContent = t('sheetLabel');
+    $('patientTitle').textContent = t('patientTitle');
+    $('pfSurnameL').textContent = t('surname');
+    $('pfNameL').textContent = t('firstName');
+    $('pfDateL').textContent = t('dateField');
+    $('pfNoteL').textContent = t('noteField');
+    renderPatientPrint(patient());
     $('sheetTotalLabel').textContent = t('totalLabel');
     $('sheetCur').textContent = t('currency');
     $('sheetNote').textContent = t('footnote');
@@ -256,6 +307,10 @@
       city: t('city'),
       date: pad2(d.getDate()) + '.' + pad2(d.getMonth() + 1) + '.' + d.getFullYear(),
       sheetLabel: t('sheetLabel'),
+      patient: {
+        values: patient(),
+        labels: { surname: t('surname'), name: t('firstName'), date: t('dateField'), note: t('noteField') }
+      },
       totalLabel: t('totalLabel'),
       currency: t('currency'),
       footnote: t('footnote'),
@@ -269,6 +324,7 @@
   function openModal() {
     renderSheet();
     $('overlay').hidden = false;
+    grow();
     document.body.style.overflow = 'hidden';
     $('closePdf').focus();
   }
@@ -317,7 +373,11 @@
     });
 
     $('clear').addEventListener('click', function () {
-      selected.clear(); save(); renderList(); renderBar();
+      selected.clear(); save(); renderList(); renderBar(); clearPatient();
+    });
+
+    Object.keys(PAT_IDS).forEach(function (k) {
+      $(PAT_IDS[k]).addEventListener('input', savePatient);
     });
 
     $('openPdf').addEventListener('click', openModal);
@@ -355,6 +415,7 @@
     SERVICES = loadServices(parseCSV(window.SERVICES_CSV));
     if (!SERVICES.length) throw new Error('список услуг пуст');
     restore();
+    restorePatient();
     renderAll();
     wire();
   }

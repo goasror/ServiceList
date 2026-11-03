@@ -69,10 +69,45 @@
     rule(doc, y, true);
     y += 7;
 
-    doc.setFont('dv', 'bold'); doc.setFontSize(7.5);
-    doc.setTextColor(GREY[0], GREY[1], GREY[2]);
-    doc.text(d.sheetLabel.toUpperCase(), M_X, y, { charSpace: 0.5 });
-    y += 5;
+    // ---------- необязательные поля: фамилия / имя / дата ----------
+    if (d.patient) {
+      var pv = d.patient.values, pl = d.patient.labels;
+      var cols = [['surname', 0, 0.38], ['name', 0.38, 0.38], ['date', 0.76, 0.24]];
+      var any = cols.some(function (c) { return pv[c[0]]; });
+      if (any) {
+        cols.forEach(function (c) {
+          if (!pv[c[0]]) return;
+          var x = M_X + W * c[1];
+          doc.setFont('dv', 'bold'); doc.setFontSize(7.5);
+          doc.setTextColor(GREY[0], GREY[1], GREY[2]);
+          doc.text(pl[c[0]].toUpperCase(), x, y, { charSpace: 0.5 });
+          doc.setFont('dv', 'normal'); doc.setFontSize(10.5);
+          doc.setTextColor(INK[0], INK[1], INK[2]);
+          doc.text(doc.splitTextToSize(pv[c[0]], W * c[2] - 4)[0], x, y + 5.5);
+        });
+        y += 14;
+      }
+      if (pv.note) {
+        doc.setFont('dv', 'bold'); doc.setFontSize(7.5);
+        doc.setTextColor(GREY[0], GREY[1], GREY[2]);
+        doc.text(pl.note.toUpperCase(), M_X, y, { charSpace: 0.5 });
+        y += 5.5;
+        doc.setFont('dv', 'normal'); doc.setFontSize(10);
+        doc.setTextColor(INK[0], INK[1], INK[2]);
+        var nl = doc.splitTextToSize(pv.note, W);
+        for (var k = 0; k < nl.length; k++) {
+          if (y > pageBottom) { doc.addPage(); y = M_TOP; }
+          doc.text(nl[k], M_X, y);
+          y += 4.6;
+        }
+        y += 2.5;
+        any = true;
+      }
+      if (any) {
+        rule(doc, y, false);
+        y += 7;
+      }
+    }
 
     // ---------- позиции ----------
     var i, lines, rowH;

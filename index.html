@@ -76,6 +76,16 @@
           <div class="mono sheet-date" id="sheetDate"></div>
         </div>
         <div class="rule"></div>
+        <div class="patient" id="patient">
+          <div class="label patient-title" id="patientTitle"></div>
+          <div class="patient-grid">
+            <label class="pf"><span class="pf-l" id="pfSurnameL"></span><input type="text" id="pfSurname" maxlength="30" autocomplete="off"></label>
+            <label class="pf"><span class="pf-l" id="pfNameL"></span><input type="text" id="pfName" maxlength="30" autocomplete="off"></label>
+            <label class="pf"><span class="pf-l" id="pfDateL"></span><input type="date" id="pfDate"></label>
+          </div>
+          <label class="pf pf-note"><span class="pf-l" id="pfNoteL"></span><textarea id="pfNote" rows="2" maxlength="600"></textarea></label>
+        </div>
+        <div class="patient-print" id="patientPrint" aria-hidden="true"></div>
         <div class="label sheet-label" id="sheetLabel"></div>
         <ol class="sheet-list" id="sheetList"></ol>
         <div class="rule"></div>
