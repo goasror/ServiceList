@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TShTMDM DM — Прейскурант цен</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Cpath d='M9 15h14M16 8v14' stroke='%23E5342A' stroke-width='4'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -40,6 +40,16 @@
         <svg class="catpick-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="catpick-panel" id="catPanel" hidden></div>
+    </div>
+
+    <div class="patient" id="patient">
+      <div class="label patient-title" id="patientTitle"></div>
+      <div class="patient-grid">
+        <label class="pf"><span class="pf-l" id="pfSurnameL"></span><input type="text" id="pfSurname" maxlength="30" autocomplete="off"></label>
+        <label class="pf"><span class="pf-l" id="pfNameL"></span><input type="text" id="pfName" maxlength="30" autocomplete="off"></label>
+        <label class="pf"><span class="pf-l" id="pfDateL"></span><input type="date" id="pfDate"></label>
+      </div>
+      <label class="pf pf-note"><span class="pf-l" id="pfNoteL"></span><textarea id="pfNote" rows="2" maxlength="600"></textarea></label>
     </div>
   </header>
 
@@ -76,15 +86,6 @@
           <div class="mono sheet-date" id="sheetDate"></div>
         </div>
         <div class="rule"></div>
-        <div class="patient" id="patient">
-          <div class="label patient-title" id="patientTitle"></div>
-          <div class="patient-grid">
-            <label class="pf"><span class="pf-l" id="pfSurnameL"></span><input type="text" id="pfSurname" maxlength="30" autocomplete="off"></label>
-            <label class="pf"><span class="pf-l" id="pfNameL"></span><input type="text" id="pfName" maxlength="30" autocomplete="off"></label>
-            <label class="pf"><span class="pf-l" id="pfDateL"></span><input type="date" id="pfDate"></label>
-          </div>
-          <label class="pf pf-note"><span class="pf-l" id="pfNoteL"></span><textarea id="pfNote" rows="2" maxlength="600"></textarea></label>
-        </div>
         <div class="patient-print" id="patientPrint" aria-hidden="true"></div>
         <div class="label sheet-label" id="sheetLabel"></div>
         <ol class="sheet-list" id="sheetList"></ol>
@@ -106,11 +107,11 @@
   </div>
 </div>
 
-<script src="jspdf.min.js"></script>
-<script src="pdf-fonts.js"></script>
-<script src="pdf.js"></script>
-<script src="config.js"></script>
-<script src="services.js"></script>
-<script src="app.js"></script>
+<script src="jspdf.min.js?v=3"></script>
+<script src="pdf-fonts.js?v=3"></script>
+<script src="pdf.js?v=3"></script>
+<script src="config.js?v=3"></script>
+<script src="services.js?v=3"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
